@@ -20,10 +20,10 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="faq" className="py-20 bg-gradient-to-br from-white to-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-flex p-4 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl mb-6">
+          <div className="inline-flex p-4 rounded-2xl mb-6" style={{ background: 'linear-gradient(to bottom right, #34b04d, #2a8f3e)' }}>
             <HelpCircle className="w-12 h-12 text-white" />
           </div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -38,7 +38,10 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:border-blue-300 transition-colors"
+              className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 transition-colors"
+              style={{ borderColor: '#e5e7eb' }}
+              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#34b04d'}
+              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#e5e7eb'}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -48,7 +51,7 @@ export default function FAQ() {
                   {faq.question}
                 </span>
                 <div className={`flex-shrink-0 transform transition-transform ${openIndex === index ? 'rotate-180' : ''}`}>
-                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-6 h-6" style={{ color: '#34b04d' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
@@ -69,7 +72,8 @@ export default function FAQ() {
           <p className="text-gray-600 mb-4">Vous avez d'autres questions ?</p>
           <a
             href="#contact"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
+            className="inline-block px-8 py-3 text-white rounded-lg font-semibold hover:shadow-lg transition-shadow"
+            style={{ background: 'linear-gradient(to right, #34b04d, #2a8f3e)' }}
           >
             Contactez-nous
           </a>

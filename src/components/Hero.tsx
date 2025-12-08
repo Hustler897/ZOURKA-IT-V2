@@ -2,18 +2,18 @@ import { Shield, TrendingUp, CheckCircle } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="pt-24 pb-16 bg-gradient-to-br from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-medium" style={{ backgroundColor: '#34b04d20', color: '#34b04d' }}>
               <Shield className="w-4 h-4" />
               Votre partenaire cybersécurité en Afrique
             </div>
 
             <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight">
               Sécuriser aujourd'hui,{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-100" style={{ backgroundImage: 'linear-gradient(to right, #34b04d, #2a8f3e)' }}>
                 transformer demain
               </span>
             </h1>
@@ -25,13 +25,17 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#offers"
-                className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-xl transition-shadow text-center"
+                className="px-8 py-4 text-white rounded-lg font-semibold hover:shadow-xl transition-shadow text-center"
+                style={{ background: 'linear-gradient(to right, #34b04d, #2a8f3e)' }}
               >
                 Découvrir nos offres
               </a>
               <a
                 href="#contact"
-                className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold border-2 border-gray-200 hover:border-blue-600 transition-colors text-center"
+                className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold border-2 border-gray-200 transition-colors text-center"
+                style={{ borderColor: '#e5e7eb' }}
+                onMouseEnter={(e) => e.currentTarget.style.borderColor = '#34b04d'}
+                onMouseLeave={(e) => e.currentTarget.style.borderColor = '#e5e7eb'}
               >
                 Diagnostic gratuit
               </a>
@@ -39,7 +43,7 @@ export default function Hero() {
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-3xl transform rotate-6"></div>
+            <div className="absolute inset-0 rounded-3xl transform rotate-6" style={{ background: 'linear-gradient(to bottom right, rgba(52, 176, 77, 0.1), rgba(255, 255, 255, 0.3))' }}></div>
             <div className="relative bg-white p-8 rounded-3xl shadow-2xl space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">Pourquoi choisir Zourka IT ?</h3>
 
@@ -78,7 +82,7 @@ export default function Hero() {
               </div>
 
               <div className="pt-6 border-t border-gray-200 flex items-center gap-3">
-                <TrendingUp className="w-8 h-8 text-blue-600" />
+                <TrendingUp className="w-8 h-8" style={{ color: '#34b04d' }} />
                 <div>
                   <p className="text-sm text-gray-600">Sécurité, innovation et confiance</p>
                   <p className="font-semibold text-gray-900">Au cœur du développement numérique</p>

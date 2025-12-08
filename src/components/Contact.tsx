@@ -15,7 +15,7 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
-            <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 border border-blue-200">
+            <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 border" style={{ borderColor: '#34b04d' }}>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Nos coordonnées
               </h3>
@@ -23,7 +23,7 @@ export default function Contact() {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-white rounded-xl shadow-sm">
-                    <MapPin className="w-6 h-6 text-blue-600" />
+                    <MapPin className="w-6 h-6" style={{ color: '#34b04d' }} />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Adresse</h4>
@@ -33,11 +33,11 @@ export default function Contact() {
 
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-white rounded-xl shadow-sm">
-                    <Mail className="w-6 h-6 text-blue-600" />
+                    <Mail className="w-6 h-6" style={{ color: '#34b04d' }} />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                    <a href="mailto:contact@zourka-it.ne" className="text-blue-600 hover:underline">
+                    <a href="mailto:contact@zourka-it.ne" style={{ color: '#34b04d' }} className="hover:underline">
                       contact@zourka-it.ne
                     </a>
                   </div>
@@ -45,11 +45,11 @@ export default function Contact() {
 
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-white rounded-xl shadow-sm">
-                    <Phone className="w-6 h-6 text-blue-600" />
+                    <Phone className="w-6 h-6" style={{ color: '#34b04d' }} />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Téléphone</h4>
-                    <a href="tel:+22789330202" className="text-blue-600 hover:underline">
+                    <a href="tel:+22789330202" style={{ color: '#34b04d' }} className="hover:underline">
                       +227 89 33 02 02
                     </a>
                   </div>
@@ -57,11 +57,11 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl p-8 text-white">
+            <div className="rounded-2xl p-8 text-white" style={{ background: 'linear-gradient(to right, #34b04d, #2a8f3e)' }}>
               <h3 className="text-2xl font-bold mb-4">
                 Prêt à sécuriser votre organisation ?
               </h3>
-              <p className="text-blue-50 mb-6 leading-relaxed">
+              <p className="mb-6 leading-relaxed" style={{ color: '#e8f5e9' }}>
                 Contactez-nous dès aujourd'hui pour un diagnostic gratuit de votre maturité cyber ou pour discuter de vos besoins en cybersécurité et transformation digitale.
               </p>
               <div className="flex items-center gap-3">
@@ -70,7 +70,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-semibold">Réponse sous 24h</p>
-                  <p className="text-sm text-blue-100">Du lundi au vendredi</p>
+                  <p className="text-sm" style={{ color: '#c8e6c9' }}>Du lundi au vendredi</p>
                 </div>
               </div>
             </div>
@@ -90,7 +90,9 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
+                  onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
                   placeholder="Votre nom"
                 />
               </div>
@@ -103,7 +105,9 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
+                  onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
                   placeholder="votre@email.com"
                 />
               </div>
@@ -116,7 +120,9 @@ export default function Contact() {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
+                  onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
                   placeholder="+227 XX XX XX XX"
                 />
               </div>
@@ -128,7 +134,10 @@ export default function Contact() {
                 <select
                   id="subject"
                   name="subject"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
+                  style={{ focusRingColor: '#34b04d' }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
                 >
                   <option>Diagnostic gratuit</option>
                   <option>Pack Conformité Express</option>
@@ -155,7 +164,8 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-semibold hover:shadow-xl transition-shadow flex items-center justify-center gap-2"
+                className="w-full px-6 py-4 text-white rounded-lg font-semibold hover:shadow-xl transition-shadow flex items-center justify-center gap-2"
+                style={{ background: 'linear-gradient(to right, #34b04d, #2a8f3e)' }}
               >
                 <Send className="w-5 h-5" />
                 Envoyer le message

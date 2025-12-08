@@ -1,4 +1,4 @@
-import { Shield, Zap, HeadphonesIcon, FileText, GraduationCap, Cpu } from 'lucide-react';
+import { Shield, Zap, HeadphonesIcon, FileText, GraduationCap, Cpu, Code } from 'lucide-react';
 
 const services = [
   {
@@ -73,6 +73,18 @@ const services = [
       'Supervision et durcissement des environnements industriels',
     ],
   },
+  {
+    icon: Code,
+    title: 'Développement Web & Mobile',
+    description: 'Solutions digitales sur mesure pour votre croissance',
+    features: [
+      'Sites vitrines et e-commerce performants',
+      'Applications mobiles natives et hybrides (iOS, Android)',
+      'Développement d\'applications web sur mesure (SaaS)',
+      'UI/UX Design et prototypage interactif',
+      'Maintenance et évolution de vos solutions digitales',
+    ],
+  },
 ];
 
 export default function Services() {
@@ -94,10 +106,13 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-300 group"
+                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200 group"
+                style={{ borderColor: '#e5e7eb' }}
+                onMouseEnter={(e) => e.currentTarget.style.borderColor = '#34b04d'}
+                onMouseLeave={(e) => e.currentTarget.style.borderColor = '#e5e7eb'}
               >
                 <div className="mb-6">
-                  <div className="inline-flex p-4 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl group-hover:scale-110 transition-transform">
+                  <div className="inline-flex p-4 rounded-xl group-hover:scale-110 transition-transform" style={{ background: 'linear-gradient(to bottom right, #34b04d, #2a8f3e)' }}>
                     <Icon className="w-8 h-8 text-white" />
                   </div>
                 </div>
@@ -112,7 +127,7 @@ export default function Services() {
                 <ul className="space-y-3">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#34b04d' }}></div>
                       <span className="text-sm text-gray-700">{feature}</span>
                     </li>
                   ))}

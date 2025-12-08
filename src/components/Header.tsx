@@ -1,6 +1,6 @@
-import { Shield, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-
+import logo from '../assets/images/logo.png';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -17,10 +17,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <a href="#" className="flex items-center gap-2 group">
-            <div className="p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg group-hover:scale-110 transition-transform">
-              <Shield className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">ZOURKA IT</span>
+            <img src={logo} alt="Logo" className="h-40 w-40" />
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -28,14 +25,18 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-600 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-600 font-medium transition-colors"
+                style={{ color: '#6b7280' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#6b7280'}
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-medium hover:shadow-lg transition-shadow"
+              className="px-6 py-2 text-white rounded-lg font-medium hover:shadow-lg transition-shadow"
+              style={{ background: 'linear-gradient(to right, #34b04d, #2a8f3e)' }}
             >
               Nous contacter
             </a>
@@ -43,7 +44,10 @@ export default function Header() {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-blue-600"
+            className="md:hidden p-2 text-gray-600"
+            style={{ color: '#6b7280' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#6b7280'}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -58,7 +62,10 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-gray-600 hover:text-blue-600 font-medium transition-colors py-2"
+                className="text-gray-600 font-medium transition-colors py-2"
+                style={{ color: '#6b7280' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#6b7280'}
               >
                 {link.label}
               </a>
@@ -66,7 +73,8 @@ export default function Header() {
             <a
               href="#contact"
               onClick={() => setIsMenuOpen(false)}
-              className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-medium text-center"
+              className="px-6 py-3 text-white rounded-lg font-medium text-center"
+              style={{ background: 'linear-gradient(to right, #34b04d, #2a8f3e)' }}
             >
               Nous contacter
             </a>

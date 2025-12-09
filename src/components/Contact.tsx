@@ -1,6 +1,49 @@
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { MessagesServices } from '../services/messagesServices';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 export default function Contact() {
+const [formData, setFormData] = useState({
+    nom: '',
+    email: '',
+    telephone: '',
+    sujet: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async () => {
+    try {
+      await MessagesServices.sendMessage(formData);
+       Swal.fire({
+        icon: 'success',
+        title: 'Message Envoyé',
+        text: `Merci ${formData.nom}, votre message a été envoyé avec succès !`,
+      });
+      setFormData({
+        nom: '',
+        email: '',
+        telephone: '',
+        sujet: '',
+        message: ''
+      });
+    }
+    catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erreur',
+        text: `${error}`,
+      })
+    }
+  
+  }
+
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,94 +124,114 @@ export default function Contact() {
               Envoyez-nous un message
             </h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={(e:React.FormEvent)=>{
+              e.preventDefault();
+              handleSubmit();
+            }}>
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Nom complet
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
-                  onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
-                  placeholder="Votre nom"
-                />
+              <label htmlFor="nom" className="block text-sm font-semibold text-gray-900 mb-2">
+                Nom complet
+              </label>
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                value={formData.nom}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
+                onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
+                placeholder="Votre nom"
+              />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
-                  onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
-                  placeholder="votre@email.com"
-                />
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
+                onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
+                placeholder="votre@email.com"
+              />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Téléphone
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
-                  onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
-                  placeholder="+227 XX XX XX XX"
-                />
+              <label htmlFor="telephone" className="block text-sm font-semibold text-gray-900 mb-2">
+                Téléphone
+              </label>
+              <input
+                type="tel"
+                id="telephone"
+                name="telephone"
+                value={formData.telephone}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
+                onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
+                placeholder="+227 XX XX XX XX"
+              />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Sujet
-                </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
-                  style={{ focusRingColor: '#34b04d' }}
-                  onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
-                >
-                  <option>Diagnostic gratuit</option>
-                  <option>Pack Conformité Express</option>
-                  <option>Cybersécurité</option>
-                  <option>Transformation Digitale</option>
-                  <option>Services Managés</option>
-                  <option>Formation</option>
-                  <option>Autre demande</option>
-                </select>
+              <label htmlFor="sujet" className="block text-sm font-semibold text-gray-900 mb-2">
+                Sujet
+              </label>
+              <select
+                id="sujet"
+                name="sujet"
+                value={formData.sujet}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all"
+                onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
+              >
+                <option value="">Sélectionnez un sujet</option>
+                <option>Diagnostic gratuit</option>
+                <option>Pack Conformité Express</option>
+                <option>Cybersécurité</option>
+                <option>Transformation Digitale</option>
+                <option>Services Managés</option>
+                <option>Formation</option>
+                <option>Autre demande</option>
+              </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none"
-                  placeholder="Décrivez votre besoin..."
-                ></textarea>
+              <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg outline-none transition-all resize-none"
+                onFocus={(e) => { e.currentTarget.style.borderColor = '#34b04d'; e.currentTarget.style.boxShadow = '0 0 0 2px rgba(52, 176, 77, 0.2)' }}
+                onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; e.currentTarget.style.boxShadow = 'none' }}
+                placeholder="Décrivez votre besoin..."
+              ></textarea>
               </div>
 
               <button
-                type="submit"
-                className="w-full px-6 py-4 text-white rounded-lg font-semibold hover:shadow-xl transition-shadow flex items-center justify-center gap-2"
-                style={{ background: 'linear-gradient(to right, #34b04d, #2a8f3e)' }}
+              type="submit"
+              className="w-full px-6 py-4 text-white rounded-lg font-semibold hover:shadow-xl transition-shadow flex items-center justify-center gap-2"
+              style={{ background: 'linear-gradient(to right, #34b04d, #2a8f3e)' }}
               >
-                <Send className="w-5 h-5" />
-                Envoyer le message
+              <Send className="w-5 h-5" />
+              Envoyer le message
               </button>
             </form>
           </div>

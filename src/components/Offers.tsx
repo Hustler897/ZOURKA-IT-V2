@@ -16,7 +16,7 @@ export default function Offers() {
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="relative bg-gradient-to-br from-green-50 to-cyan-50 rounded-2xl p-8 border-2 border-green-200 hover:border-green-400 transition-colors group overflow-hidden">
             <div className="absolute top-0 right-0 bg-green-500 text-white px-6 py-2 rounded-bl-2xl font-bold text-sm">
-              GRATUIT
+              Evaluer
             </div>
 
             <div className="mt-8 mb-6">

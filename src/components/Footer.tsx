@@ -48,7 +48,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#services"
+                  href="/#services"
                   className="text-sm transition-colors"
                   style={{ color: '#9ca3af' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
@@ -59,7 +59,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/#services"
                   className="text-sm transition-colors"
                   style={{ color: '#9ca3af' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
@@ -70,7 +70,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/#services"
                   className="text-sm transition-colors"
                   style={{ color: '#9ca3af' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
@@ -81,7 +81,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/#services"
                   className="text-sm transition-colors"
                   style={{ color: '#9ca3af' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
@@ -92,7 +92,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#services"
+                  href="/#services"
                   className="text-sm transition-colors"
                   style={{ color: '#9ca3af' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
@@ -109,7 +109,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#about"
+                  href="/#about"
                   className="text-sm transition-colors"
                   style={{ color: '#9ca3af' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
@@ -120,7 +120,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#offers"
+                  href="/#offers"
                   className="text-sm transition-colors"
                   style={{ color: '#9ca3af' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
@@ -131,7 +131,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#faq"
+                  href="/#faq"
                   className="text-sm transition-colors"
                   style={{ color: '#9ca3af' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
@@ -142,7 +142,18 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#contact"
+                  href="/partenaires"
+                  className="text-sm transition-colors"
+                  style={{ color: '#9ca3af' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#9ca3af'}
+                >
+                  Partenaires
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#contact"
                   className="text-sm transition-colors"
                   style={{ color: '#9ca3af' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#34b04d'}
